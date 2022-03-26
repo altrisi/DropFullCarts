@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "dropfullcarts",
+  "version": "${version}",
+
+  "name": "DropFullCarts",
+  "description": "A small mod that makes the different cart variants drop themselves instead of breaking in parts",
+  "authors": [
+    "altrisi"
+  ],
+  "contact": {
+    "homepage": "https://github.com/altrisi/DropFullCarts/",
+    "sources": "https://github.com/altrisi/DropFullCarts/",
+    "issues": "https://github.com/altrisi/DropFullCarts/issues"
+  },
+
+  "license": "Visible source",
+  "icon": "assets/dropfullcarts/icon.png",
+
+  "environment": "*",
+  "entrypoints": {},
+  "mixins": [
+    "dropfullcarts.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.12.12",
+    "minecraft": ">=1.17.1"
+  }
+}

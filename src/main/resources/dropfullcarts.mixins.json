@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "altrisi.mods.dropfullcarts.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+  ],
+  "client": [
+    "AbstractMinecartMixin",
+    "MinecartSubclassesMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
