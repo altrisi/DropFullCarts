@@ -4,8 +4,6 @@
   "package": "altrisi.mods.dropfullcarts.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-  ],
-  "mixins": [
     "AbstractMinecartMixin",
     "MinecartSubclassesMixin"
   ],
