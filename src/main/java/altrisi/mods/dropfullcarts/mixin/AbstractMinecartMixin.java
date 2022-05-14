@@ -15,7 +15,7 @@ public abstract class AbstractMinecartMixin {
 	public abstract ItemStack getPickResult();
 	
 	@Redirect(method = "destroy", at = @At(value = "NEW", target = "net/minecraft/world/item/ItemStack"))
-	private ItemStack dropFullMinecart(ItemLike itemLike) {
+	private ItemStack dropFullCart(ItemLike itemLike) {
 		return getPickResult();
 	}
 }
