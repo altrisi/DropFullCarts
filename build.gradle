@@ -1,6 +1,7 @@
 plugins {
 	id 'fabric-loom' version '0.11-SNAPSHOT'
 	id 'maven-publish'
+	id "io.github.p03w.machete" version "1.0.11"
 }
 
 sourceCompatibility = JavaVersion.VERSION_1_8
@@ -23,6 +24,11 @@ dependencies {
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
 	mappings loom.officialMojangMappings()
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+}
+
+machete {
+	// Enable local variable table stripping. We don't reference those, so they will never appear in NPEs
+	optimizations.stripLVT = true
 }
 
 processResources {
