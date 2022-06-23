@@ -1,10 +1,10 @@
 plugins {
 	id 'fabric-loom' version '0.11-SNAPSHOT'
 	id 'maven-publish'
-	id "io.github.p03w.machete" version "1.0.11"
+	id "io.github.p03w.machete" version "1.1.2"
 }
 
-sourceCompatibility = JavaVersion.VERSION_1_8
+sourceCompatibility = JavaVersion.VERSION_14
 targetCompatibility = JavaVersion.VERSION_1_8
 
 archivesBaseName = project.archives_base_name
@@ -24,11 +24,14 @@ dependencies {
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
 	mappings loom.officialMojangMappings()
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+	annotationProcessor 'com.github.bsideup.jabel:jabel-javac-plugin:0.4.2'
 }
 
 machete {
 	// Enable local variable table stripping. We don't reference those, so they will never appear in NPEs
-	optimizations.stripLVT = true
+	lvtStriping.enabled = true
+	// Enable source file striping. We only have mixins, and those aren't present in stacktraces anyway
+	sourceFileStriping.enabled = true
 }
 
 processResources {
@@ -40,8 +43,8 @@ processResources {
 }
 
 tasks.withType(JavaCompile).configureEach {
-	// Minecraft 1.17 (21w19a) upwards uses Java 16.
-	it.options.release = 16
+	// Minecraft 1.16 provides Java 8.
+	it.options.release = 8
 }
 
 java {

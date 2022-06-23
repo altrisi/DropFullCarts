@@ -13,7 +13,7 @@ import net.minecraft.world.level.GameRules;
 @Mixin({MinecartChest.class, MinecartHopper.class, MinecartFurnace.class, MinecartTNT.class})
 public class MinecartSubclassesMixin {
 	@Redirect(method = "destroy", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/GameRules;getBoolean(Lnet/minecraft/world/level/GameRules$Key;)Z"))
-	private boolean dontDropComponent(GameRules gameRules, GameRules.Key<GameRules.BooleanValue> key) {
+	private boolean noComponent(GameRules gameRules, GameRules.Key<GameRules.BooleanValue> key) {
 		return false;
 	}
 }
